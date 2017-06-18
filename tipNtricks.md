@@ -60,7 +60,7 @@ accuracy_score(y_true, y_pred)
 accuracy_score(y_true, y_pred, normalize=False)
 2
 ```
-**A simple Naive Bayes Classifer **
+**A simple Naive Bayes Classifer**
 ```
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
