@@ -49,7 +49,7 @@ selector.fit(features_train_transformed, labels_train)
 features_train_transformed = selector.transform(features_train_transformed).toarray()
 features_test_transformed  = selector.transform(features_test_transformed).toarray()
 ```
-** finding accuracy of a classfication model**
+**Finding accuracy of a classfication model**
 ```
 import numpy as np
 from sklearn.metrics import accuracy_score
@@ -60,7 +60,7 @@ accuracy_score(y_true, y_pred)
 accuracy_score(y_true, y_pred, normalize=False)
 2
 ```
-** a simple Naive Bayes Classifer **
+**A simple Naive Bayes Classifer **
 ```
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
