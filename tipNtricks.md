@@ -26,7 +26,7 @@ features_test_transformed  = vectorizer.transform(features_test)
 ```
 **Feature selection**
 Since text data is highly demensional you should choose only relevant features out of it.
-sklearn's SelectPercentile class automatically does feature selection based on the relevance of
+sklearn's ```SelectPercentile``` class automatically does feature selection based on the relevance of
 that word with the target
 
 If you decide to select a variable by its level of association with its target, 
@@ -60,7 +60,7 @@ accuracy_score(y_true, y_pred)
 accuracy_score(y_true, y_pred, normalize=False)
 2
 ```
-**A simple Naive Bayes Classifer**
+**A simple Naive Bayes Classifier**
 ```
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
@@ -70,5 +70,13 @@ pred_labels = clf.predict(features_test)
 from sklearn.metrics import accuracy_score
 print accuracy_score(labels_test, pred_labels)
 ```
+**Time your code**
+```
+t0_fit = time()
+clf = clf.fit(features_train, labels_train)
+print "time to fit the model:",round(time()-t0_fit,3),"s"
+```
 
-
+**SVM : Support Vector Machine**
+They are all about maximizing the distance of the line from the nearest data point.
+That distance is called margin. SVMs maximize the margins.
