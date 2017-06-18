@@ -1,6 +1,6 @@
 # Here are some tricks to keep in mind.
 
-*Segregate Train and Test data*
+**Segregate Train and Test data**
 ```
 from sklearn import cross_validation
 ### test_size is the percentage of events assigned to the test set
@@ -8,14 +8,14 @@ from sklearn import cross_validation
 features_train, features_test, labels_train, labels_test = cross_validation.train_test_split(word_data, authors, test_size=0.1, random_state=42)
 ```
 
-*Pickle it*
+**Pickle it**
 ```
 import pickle
 mydate = pickle.load(open('filename.pkl','rb'))
 # cpickle is faster: python3 loads cpickle automatically when you load pickle
 ```
 
-*Convert raw text to vector : tf-idf *
+**Convert raw text to vector : tf-idf**
 tf-idf : term frequency - inverse document frequency
 ```
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -24,7 +24,7 @@ vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,stop_words='english')
 features_train_transformed = vectorizer.fit_transform(features_train)
 features_test_transformed  = vectorizer.transform(features_test)
 ```
-* Feature selection*
+**Feature selection**
 Since text data is highly demensional you should choose only relevant features out of it.
 sklearn's SelectPercentile class automatically does feature selection based on the relevance of
 that word with the target
@@ -49,4 +49,26 @@ selector.fit(features_train_transformed, labels_train)
 features_train_transformed = selector.transform(features_train_transformed).toarray()
 features_test_transformed  = selector.transform(features_test_transformed).toarray()
 ```
+** finding accuracy of a classfication model**
+```
+import numpy as np
+from sklearn.metrics import accuracy_score
+y_pred = [0, 2, 1, 3]
+y_true = [0, 1, 2, 3]
+accuracy_score(y_true, y_pred)
+0.5
+accuracy_score(y_true, y_pred, normalize=False)
+2
+```
+** a simple Naive Bayes Classifer **
+```
+from sklearn.naive_bayes import GaussianNB
+clf = GaussianNB()
+clf = clf.fit(features_train, labels_train)
+pred_labels = clf.predict(features_test)
+
+from sklearn.metrics import accuracy_score
+print accuracy_score(labels_test, pred_labels)
+```
+
 
