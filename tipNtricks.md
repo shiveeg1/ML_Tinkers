@@ -193,3 +193,18 @@ IG = entropy(parent) - [ weighted avg ] .entropy (children)
 DT will try to maximize the information gain.
 Clearly if the children nodes have aentropy 1 and the information gain is going to be 0. That parent node is clearly **not** the place where you want to start splitting your decision boundary. 
 Remember : DT continously try to maximize the information gain while splitting for a boundary.
+
+**Bais Variance**
+High Bias algo disregards the data and performs the same no matter what data you train it on.
+High Variance algo is too tightly fitted to the data and can only predict correctly what it has seen before.
+What we want is a middle ground.
+
+Disadvantages of DTs :-
+
+They are prone to over fitting when there are lot of features.
+
+Advantage :-
+
+You can make ensembles. Clf out of a Clf.
+
+*Hint on how to shape your data*: the data is organized into a numpy array where the number of rows is the number of data points and the number of columns is the number of features; so to extract this number, use a line of code like len(features_train[0])
