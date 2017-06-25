@@ -73,6 +73,7 @@ print accuracy_score(labels_test, pred_labels)
 ```
 **Time your code**
 ```
+from time import time
 t0_fit = time()
 clf = clf.fit(features_train, labels_train)
 print "time to fit the model:",round(time()-t0_fit,3),"s"
@@ -93,7 +94,7 @@ accuracy_score(pred, labels_test) #remember to import accuracy_score from sklear
 **kernels** can be any of the following :-
 1. linear
 2. polynomial
-3. rbf
+3. rbf : Radial Basis Function
 4. sigmoid
 5. custom / callable
 
@@ -116,4 +117,30 @@ cls.support_
 # get number of support vectors for each class
 clf.n_support_
 ```
+**SVM Parameters**
+1. C parameter - Panalty parameter of the model. The larger the value of C means you'll get more training set correctly classfied and that the decision boundary will be tightly coupled with the training set. Therefore there is a trade off for the right amount of panalty you wan't to implement.
+2. Gamma parameter - How far the influence of a single training parameter reach. 
+A high value of gamma means that only the points close to the decision boundary take part in deciding where the decision boundary should be. In this case the decision boundary seems to be more tight fitted.
+A Low value of gamma means that even the points farther away plays infuence where the decision boundary is going to be. in this case the decision boundary seems to be more linear.
+
+The kernel, C parameter and Gamma parameter together play the role in over-fitting the model.
+
+**When to use Naive Bayes and when to go with SVM**
+SVMs work great with complicated situations where there is a clear margin between the classes.
+
+They don't work well with large data sets with per say cubic or higher level of separation.
+They also don't work well where there is a lot noise.
+In these cases Naive Bayse will be more suitable.
+
+For eg : in case of handling text Nave Bayes will fare better.
+
+Accuracy level with different parameters with respect to the udacity email classification dataset:-
+kernel='linear' : highest appx 0.98
+kernel='rbf' :    low appx 0.68
+C = 10.0     :      0.61
+C= 100.0     :      0.61
+C= 1000.0     :     0.821
+C= 10000.0    :     0.892
+
+So basically the accuracy increased with the Value of C (the panalty parameter) - fitting closely with the training set
 
