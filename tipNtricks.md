@@ -16,6 +16,7 @@ mydate = pickle.load(open('filename.pkl','rb'))
 ```
 
 **Convert raw text to vector : tf-idf**
+
 tf-idf : term frequency - inverse document frequency
 ```
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -82,11 +83,37 @@ They are all about maximizing the distance of the line from the nearest data poi
 That distance is called margin. SVMs maximize the margins.
 
 *A basic SVM implementation*
-
+```
 from sklearn.svm import SVC
 clf = SVC(kernel='linear')
 clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
 accuracy_score(pred, labels_test) #remember to import accuracy_score from sklearn.metrics
+```
+**kernels** can be any of the following :-
+1. linear
+2. polynomial
+3. rbf
+4. sigmoid
+5. custom / callable
 
+Advantages :-
+1. effective in high demensional spaces
+2. efective even when the dimensions are greater than the number of samples
+3. uses a subset of training points so it's memory efficient
+4. custom kernels can be used
+
+Disadvantages :-
+1. poor performance when the number of features is less than the number of samples
+2. do not provide probabilty estimates
+
+SVMs decision function depends upon the support vectors which are a subset of the training sample
+```
+# get support vectors
+clf.support_vectors_
+# get indices of support vector
+cls.support_
+# get number of support vectors for each class
+clf.n_support_
+```
 
