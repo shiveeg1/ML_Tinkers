@@ -80,3 +80,13 @@ print "time to fit the model:",round(time()-t0_fit,3),"s"
 **SVM : Support Vector Machine**
 They are all about maximizing the distance of the line from the nearest data point.
 That distance is called margin. SVMs maximize the margins.
+
+*A basic SVM implementation*
+
+from sklearn.svm import SVC
+clf = SVC(kernel='linear')
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+accuracy_score(pred, labels_test) #remember to import accuracy_score from sklearn.metrics
+
+
