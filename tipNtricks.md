@@ -61,7 +61,7 @@ accuracy_score(y_true, y_pred)
 accuracy_score(y_true, y_pred, normalize=False)
 2
 ```
-**A simple Naive Bayes Classifier**
+# A simple Naive Bayes Classifier
 ```
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
@@ -79,7 +79,7 @@ clf = clf.fit(features_train, labels_train)
 print "time to fit the model:",round(time()-t0_fit,3),"s"
 ```
 
-**SVM : Support Vector Machine**
+# SVM : Support Vector Machine
 They are all about maximizing the distance of the line from the nearest data point.
 That distance is called margin. SVMs maximize the margins.
 
@@ -146,7 +146,7 @@ C= 10000.0    :     0.892
 ```
 So basically the accuracy increased with the Value of C (the panalty parameter) - fitting closely with the training set
 
-**Decision Trees**
+# Decision Trees
 Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features.
 
 Used for non-linear classifications & regressions which requires different decisions paths to be taken depending on the previous choice.
@@ -159,5 +159,5 @@ accuracy = accuracy_score(pred, labels_test)
 ```
 *Parameters of Decision Tree Classifiers*
 
-min_samples_split : the min number of samples that should be present in the node to allow further splitting. Used to prevent                     overfitting of the data.
+**min_samples_split** : the min number of samples that should be present in the node to allow further splitting. Used to prevent                     overfitting of the data.
                     Therefore, for eg, with a min_samples_split = 2 you can't split a node with only 1 sample left. The                         default values is 2.
