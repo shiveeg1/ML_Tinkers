@@ -170,7 +170,9 @@ For eg, if all the data points in a subset belong to the same class then the pur
 On the other hand if we have 2 class labels and the data points are evenly split between the two classes then the entropy is max = 1
 
 **Calculation of Entropy example**
-lets day a node has 4 data points |SSFF| 
+
+lets say a node has 4 data points |SSFF| 
+```
 total points T = 4
 S points = 2
 F points = 2
@@ -181,11 +183,13 @@ and entropy is
 -ps.log2(ps) - pf.log(pf)
 
 -0.5*-1 -0.5*-1 = 1
-
+```
 So we get a data set where there are 2 classes and the data points are evenly split between the two so the entropy is max.
 
 **Information Gain**
+
 IG = entropy(parent) - [ weighted avg ] .entropy (children)
 
 DT will try to maximize the information gain.
-Clearly if the children nodes have aentropy 1 and the information gain is going to be 0. That parent node is clearly **not** the place where you want to start splitting your decision boundary.
+Clearly if the children nodes have aentropy 1 and the information gain is going to be 0. That parent node is clearly **not** the place where you want to start splitting your decision boundary. 
+Remember : DT continously try to maximize the information gain while splitting for a boundary.
