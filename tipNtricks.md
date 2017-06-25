@@ -126,6 +126,7 @@ A Low value of gamma means that even the points farther away plays infuence wher
 The kernel, C parameter and Gamma parameter together play the role in over-fitting the model.
 
 **When to use Naive Bayes and when to go with SVM**
+
 SVMs work great with complicated situations where there is a clear margin between the classes.
 
 They don't work well with large data sets with per say cubic or higher level of separation.
@@ -135,12 +136,28 @@ In these cases Naive Bayse will be more suitable.
 For eg : in case of handling text Nave Bayes will fare better.
 
 Accuracy level with different parameters with respect to the udacity email classification dataset:-
+```
 kernel='linear' : highest appx 0.98
 kernel='rbf' :    low appx 0.68
 C = 10.0     :      0.61
 C= 100.0     :      0.61
 C= 1000.0     :     0.821
 C= 10000.0    :     0.892
-
+```
 So basically the accuracy increased with the Value of C (the panalty parameter) - fitting closely with the training set
 
+**Decision Trees**
+Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features.
+
+Used for non-linear classifications & regressions which requires different decisions paths to be taken depending on the previous choice.
+```
+from sklearn import tree
+clf = tree.DecisionTreeClassifier()
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+accuracy = accuracy_score(pred, labels_test)
+```
+*Parameters of Decision Tree Classifiers*
+
+min_samples_split : the min number of samples that should be present in the node to allow further splitting. Used to prevent                     overfitting of the data.
+                    Therefore, for eg, with a min_samples_split = 2 you can't split a node with only 1 sample left. The                         default values is 2.
