@@ -159,5 +159,33 @@ accuracy = accuracy_score(pred, labels_test)
 ```
 *Parameters of Decision Tree Classifiers*
 
-**min_samples_split** : the min number of samples that should be present in the node to allow further splitting. Used to prevent                     overfitting of the data.
-                    Therefore, for eg, with a min_samples_split = 2 you can't split a node with only 1 sample left. The                         default values is 2.
+**min_samples_split** : the min number of samples that should be present in the node to allow further splitting. Used to prevent overfitting of the data.
+                    Therefore, for eg, with a min_samples_split = 2 you can't split a node with only 1 sample left. The                         default values is 2. Generally low min_samples_split values lead to over-fitting. So high values like 50 or so would be better than 2.
+                    
+**Entropy** : comtrols how a DT decides where to split the data. It's a measure of impurity in a bunch of data samples.
+Basically while making a DT you are trying to find variables that devide the data into subsets which are as pure as possible.
+
+Entropy - summation of ( -pi . log base2 (pi)) where pi are the data points belonging to a differnt class in that subset.
+For eg, if all the data points in a subset belong to the same class then the purity is max and entropy is 0.
+On the other hand if we have 2 class labels and the data points are evenly split between the two classes then the entropy is max = 1
+
+**Calculation of Entropy example**
+lets day a node has 4 data points |SSFF| 
+total points T = 4
+S points = 2
+F points = 2
+so, ps = 2/4 = 0.5
+&   pf = 2/4 = 0.5
+
+and entropy is 
+-ps.log2(ps) - pf.log(pf)
+
+-0.5*-1 -0.5*-1 = 1
+
+So we get a data set where there are 2 classes and the data points are evenly split between the two so the entropy is max.
+
+**Information Gain**
+IG = entropy(parent) - [ weighted avg ] .entropy (children)
+
+DT will try to maximize the information gain.
+Clearly if the children nodes have aentropy 1 and the information gain is going to be 0. That parent node is clearly **not** the place where you want to start splitting your decision boundary.
