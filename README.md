@@ -219,7 +219,17 @@ The idea is to find pre-defined number of points closest to the new point and pr
 The distance can be measured by various means for eg Euclidean distance etc.
 It's better to transform the data into a fast indexing structure such as *Ball Tree* or *KD Tree*.
 Supervised neighbors-based learning comes in two flavors: classification for data with discrete labels, and regression for data with continuous labels.
+```python
+from sklearn import neighbors
+from sklearn.metrics import accuracy_score
+n_neighbors = 15        # numbers of neighbors used for k_neghbors  quesries
+clf= neighbors.KNeighborsClassifier(n_neighbors, weights='distance')
+clf.fit(features_train, labels_train)
 
+pred = clf.predict(features_test)
+
+# gave an accuracy of 0.94
+```
 
 Side Note :-
 ```python
@@ -228,3 +238,41 @@ Side Note :-
 import inspect
 print inspect.getsource(plt.scatter)
 ```
+
+**Random Forest Classifier**
+
+Its a meta estimator / ensemble which uses a number of decison tree classifiers (trees making a forest) and uses averaging to get better predcitive results and about over-fitting.
+
+*Parameters*
+
+1. n_estimators : number of trees in the forest. default 10
+2. max_featres : number of features to consider
+3. max_depth : of the tree
+4. n_jobs :  number of jobs to run in parallel for both fit and predict
+5. random_state : random number generator
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+clf = RandomForestClassifier(random_state=132)
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+print "accuracy of random forest is : " , accuracy_score(pred,labels_test)
+
+# accuracy of random forest is :  0.92
+```
+
+**AdaBoost**
+
+it's a meta estimator that focusses on improving the predictions by fitting a sequence of weak models on repeatedly modified data. The data is modified by applying wieghts to each sample,, with more weights on the previously incoreectly predicted samples. The model is re-trained on this data and so on gaining accuracy.
+
+```python
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.metrics import accuracy_score
+clf = AdaBoostClassifier(n_estimators=100)
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+print "accuracy of Adaboost is : " , accuracy_score(pred,labels_test)
+# accuracy of Adaboost is :  0.924
+```
+
