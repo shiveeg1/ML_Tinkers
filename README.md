@@ -26,6 +26,7 @@ features_train_transformed = vectorizer.fit_transform(features_train)
 features_test_transformed  = vectorizer.transform(features_test)
 ```
 **Feature selection**
+
 Since text data is highly demensional you should choose only relevant features out of it.
 sklearn's ```SelectPercentile``` class automatically does feature selection based on the relevance of
 that word with the target
@@ -195,6 +196,7 @@ Clearly if the children nodes have aentropy 1 and the information gain is going 
 Remember : DT continously try to maximize the information gain while splitting for a boundary.
 
 **Bais Variance**
+
 High Bias algo disregards the data and performs the same no matter what data you train it on.
 High Variance algo is too tightly fitted to the data and can only predict correctly what it has seen before.
 What we want is a middle ground.
