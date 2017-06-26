@@ -18,7 +18,7 @@ mydate = pickle.load(open('filename.pkl','rb'))
 **Convert raw text to vector : tf-idf**
 
 tf-idf : term frequency - inverse document frequency
-```
+```python
 from sklearn.feature_extraction.text import TfidfVectorizer
 ### text vectorization--go from strings to lists of numbers
 vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,stop_words='english')
@@ -41,7 +41,7 @@ associated features. The available metrics for association are
 **chi2**: Performs the chi-square statistic for categorical targets, which is less sensible to the nonlinear relationship between the predictive variable and its target.
 
 *Note the features used below for selections are first vectorized.*
-```
+```python
 from sklearn.feature_selection import SelectPercentile, f_classif
 ### feature selection, because text is super high dimensional and 
 ### can be really computationally chewy as a result
@@ -51,7 +51,7 @@ features_train_transformed = selector.transform(features_train_transformed).toar
 features_test_transformed  = selector.transform(features_test_transformed).toarray()
 ```
 **Finding accuracy of a classfication model**
-```
+```python
 import numpy as np
 from sklearn.metrics import accuracy_score
 y_pred = [0, 2, 1, 3]
@@ -62,7 +62,7 @@ accuracy_score(y_true, y_pred, normalize=False)
 2
 ```
 # A simple Naive Bayes Classifier
-```
+```python
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
 clf = clf.fit(features_train, labels_train)
@@ -72,7 +72,7 @@ from sklearn.metrics import accuracy_score
 print accuracy_score(labels_test, pred_labels)
 ```
 **Time your code**
-```
+```python
 from time import time
 t0_fit = time()
 clf = clf.fit(features_train, labels_train)
@@ -84,7 +84,7 @@ They are all about maximizing the distance of the line from the nearest data poi
 That distance is called margin. SVMs maximize the margins.
 
 *A basic SVM implementation*
-```
+```python
 from sklearn.svm import SVC
 clf = SVC(kernel='linear')
 clf.fit(features_train, labels_train)
@@ -109,7 +109,7 @@ Disadvantages :-
 2. do not provide probabilty estimates
 
 SVMs decision function depends upon the support vectors which are a subset of the training sample
-```
+```python
 # get support vectors
 clf.support_vectors_
 # get indices of support vector
@@ -136,7 +136,7 @@ In these cases Naive Bayse will be more suitable.
 For eg : in case of handling text Nave Bayes will fare better.
 
 Accuracy level with different parameters with respect to the udacity email classification dataset:-
-```
+```python
 kernel='linear' : highest appx 0.98
 kernel='rbf' :    low appx 0.68
 C = 10.0     :      0.61
@@ -150,7 +150,7 @@ So basically the accuracy increased with the Value of C (the panalty parameter) 
 Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features.
 
 Used for non-linear classifications & regressions which requires different decisions paths to be taken depending on the previous choice.
-```
+```python
 from sklearn import tree
 clf = tree.DecisionTreeClassifier()
 clf.fit(features_train, labels_train)
@@ -172,7 +172,7 @@ On the other hand if we have 2 class labels and the data points are evenly split
 **Calculation of Entropy example**
 
 lets say a node has 4 data points |SSFF| 
-```
+```python
 total points T = 4
 S points = 2
 F points = 2
@@ -220,7 +220,7 @@ Supervised neighbors-based learning comes in two flavors: classification for dat
 
 
 Side Note :-
-```
+```python
 # to get the definition of a method
 
 import inspect
