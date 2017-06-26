@@ -1,7 +1,7 @@
 # Here are some tricks to keep in mind.
 
 **Segregate Train and Test data**
-```
+```python
 from sklearn import cross_validation
 ### test_size is the percentage of events assigned to the test set
 ### (remainder go into training)
@@ -9,7 +9,7 @@ features_train, features_test, labels_train, labels_test = cross_validation.trai
 ```
 
 **Pickle it**
-```
+```python
 import pickle
 mydate = pickle.load(open('filename.pkl','rb'))
 # cpickle is faster: python3 loads cpickle automatically when you load pickle
