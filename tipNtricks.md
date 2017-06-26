@@ -208,3 +208,21 @@ Advantage :-
 You can make ensembles. Clf out of a Clf.
 
 *Hint on how to shape your data*: the data is organized into a numpy array where the number of rows is the number of data points and the number of columns is the number of features; so to extract this number, use a line of code like len(features_train[0])
+
+# Exploring Algorithms
+
+**K-Nearest Neighbours**
+
+The idea is to find pre-defined number of points closest to the new point and predict the label from these.
+The distance can be measured by various means for eg Euclidean distance etc.
+It's better to transform the data into a fast indexing structure such as *Ball Tree* or *KD Tree*.
+Supervised neighbors-based learning comes in two flavors: classification for data with discrete labels, and regression for data with continuous labels.
+
+
+Side Note :-
+```
+# to get the definition of a method
+
+import inspect
+print inspect.getsource(plt.scatter)
+```
