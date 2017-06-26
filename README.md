@@ -62,7 +62,7 @@ accuracy_score(y_true, y_pred)
 accuracy_score(y_true, y_pred, normalize=False)
 2
 ```
-# A simple Naive Bayes Classifier
+## A simple Naive Bayes Classifier
 ```python
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
@@ -264,7 +264,7 @@ print "accuracy of random forest is : " , accuracy_score(pred,labels_test)
 
 **AdaBoost**
 
-it's a meta estimator that focusses on improving the predictions by fitting a sequence of weak models on repeatedly modified data. The data is modified by applying wieghts to each sample,, with more weights on the previously incoreectly predicted samples. The model is re-trained on this data and so on gaining accuracy.
+It's a meta estimator that focusses on improving the predictions by fitting a sequence of weak models on repeatedly modified data. The data is modified by applying wieghts to each sample,, with more weights on the previously incoreectly predicted samples. The model is re-trained on this data and so on gaining accuracy.
 
 ```python
 from sklearn.ensemble import AdaBoostClassifier
@@ -274,5 +274,12 @@ clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
 print "accuracy of Adaboost is : " , accuracy_score(pred,labels_test)
 # accuracy of Adaboost is :  0.924
+```
+## Playing with Datasets
+
+To pretty print json data.
+```python
+import json
+print json.dumps(enron_data['GRAMM WENDY L'],indent=4, sort_keys=True)
 ```
 
