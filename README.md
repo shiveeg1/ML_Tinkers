@@ -292,9 +292,9 @@ print reg.coef_, reg.intercept_
 print "score of training set :", reg.score(feature_train, target_train)
 ```
 
-**Two methods used to caculate the slope**
+**Two methods used to minimize SSE**
 
-1. Common Least 
+1. Ordinary Least Squares (used by scikit learn Linear Regression algo)
 2. Gradient decent
 
 **Why is the sum of squared error used instead of absolute error**
