@@ -282,4 +282,27 @@ To pretty print json data.
 import json
 print json.dumps(enron_data['GRAMM WENDY L'],indent=4, sort_keys=True)
 ```
+## Linear Regression
+
+```python
+from sklearn.linear_model import LinearRegression
+reg = LinearRegression()
+reg.fit(feature_train, target_train)
+print reg.coef_, reg.intercept_
+print "score of training set :", reg.score(feature_train, target_train)
+```
+
+**Two methods used to caculate the slope**
+
+1. Common Least 
+2. Gradient decent
+
+**Why is the sum of squared error used instead of absolute error**
+
+If we take the absolute error then the magnitue of difference between the errors on either side gets subdued. 
+There is a fundamental ambiguity in case of absolute errors.
+There can be multiple lines sufficing a min absolute error.
+
+But only one line sufficing sum of square error.
+Also the computations are much easier with SSE.
 
