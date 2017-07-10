@@ -237,6 +237,15 @@ Side Note :-
 
 import inspect
 print inspect.getsource(plt.scatter)
+
+# to convert a number lists into a list of tuples
+listOfTuple = zip(list1, list2,lst3)
+
+# to delete an element from a list by its index
+del a[index]
+
+# to insert a new element at the end of a list
+a.insert(len(a), newElement)
 ```
 
 **Random Forest Classifier**
