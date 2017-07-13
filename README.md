@@ -315,3 +315,14 @@ There can be multiple lines sufficing a min absolute error.
 But only one line sufficing sum of square error.
 Also the computations are much easier with SSE.
 
+## K-Mean Clustering
+
+The philosophy of K-Means algorithm comprises of 2 steps :-
+1. Assign
+2. Optimize
+
+In the first step as the name suggest, you **assign** centres to the clusters. At first you can begin with picking them up at random and finding the points closest to them. 
+
+In the second step you try to **optimize** the location of the centers wrt the points in the current cluster. The procedure of optimization is similar to how rubber bands work. Think about it this way... the points in the cluster are tied to the current centre of the cluster with rubber bands. Now each rubber band will try to pull the center towards itself. Effectively, the center will come to rest in a position where the force is equally balanced from all points. The force it experiences is directly proportional to the distance of the centre from the points. So basically the centre comes to rest where it's optimally (fairly equidistant) from each point.
+
+The above process when repeated a number of times till when the centre stops moving is when you get the clusters made.
