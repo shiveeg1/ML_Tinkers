@@ -326,3 +326,8 @@ In the first step as the name suggest, you **assign** centres to the clusters. A
 In the second step you try to **optimize** the location of the centers wrt the points in the current cluster. The procedure of optimization is similar to how rubber bands work. Think about it this way... the points in the cluster are tied to the current centre of the cluster with rubber bands. Now each rubber band will try to pull the center towards itself. Effectively, the center will come to rest in a position where the force is equally balanced from all points. The force it experiences is directly proportional to the distance of the centre from the points. So basically the centre comes to rest where it's optimally (fairly equidistant) from each point.
 
 The above process when repeated a number of times till when the centre stops moving is when you get the clusters made.
+
+**It Ain't Perfect!**
+
+One problem with K-Means clustering is that the initial position of the centre is pretty much random but actually greatly influences how the clustering would end up like.
+
