@@ -331,3 +331,21 @@ The above process when repeated a number of times till when the centre stops mov
 
 One problem with K-Means clustering is that the initial position of the centre is pretty much random but actually greatly influences how the clustering would end up like.
 
+## Handling missing values
+Most libraries for training models will throw an exception in case of NaN values. These should be handled in pre-processing the data.
+
+** Imputation **
+Imputer fills the missing (NaN) values with a number. It may not be a correct value in most cases but is better than dropping the columns with the missing values.
+```python
+from sklearn.preprocessing import Imputer
+my_imputer = Imputer()
+imputed_train_data = my_imputer.fit_transform(original_train_data) # fit_transform is the compulsory first step
+imputed_test_data  = my_imputer.transform(original_test_data) # only then you can transform the test data as well
+```
+
+** ndarray to dataframe **
+The Imputer returns a ndarray. But to do more data processing or to train a model you will need a data frame.
+``` python
+import pandas as pd
+new_df = pd.DataFrame(data = imputed_train_data, columns=original_train_data.columns)
+```
